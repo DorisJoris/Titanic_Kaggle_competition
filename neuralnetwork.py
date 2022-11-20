@@ -12,8 +12,9 @@ from tensorflow import keras
 
 inputs = keras.Input(shape=(13,))
 
-dense = keras.layers.Dense(4, activation = 'relu')(inputs)
-outputs = keras.layers.Dense(1, activation = 'sigmoid')(inputs)
+dense = keras.layers.Dense(8, activation = 'relu')(inputs)
+
+outputs = keras.layers.Dense(1, activation = 'sigmoid')(dense)
 
 model = keras.Model(inputs = inputs,
                     outputs = outputs,
@@ -41,12 +42,14 @@ model.compile(
     )
 
 #%%
-callback = keras.callbacks.Earlystopping(monitor = 'loss', patience = 3)
+callback = keras.callbacks.EarlyStopping(patience = 3)
 
 history = model.fit(x_train, 
                     y_train,
-                    batch_size = 8, 
-                    epochs = 400,
+                    batch_size = 64, 
+                    epochs = 1000,
                     validation_data = (x_validation, y_validation),
                     callbacks = [callback]
                     )
+
+history.history['val_accuracy'][-1]
