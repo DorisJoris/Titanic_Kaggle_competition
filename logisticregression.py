@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Oct 30 16:25:54 2022
+Created on Sun Nov 20 17:30:22 2022
 
 @author: bejob
 """
@@ -11,9 +11,7 @@ from dataprovider import Dataprovider
 
 from sklearn.model_selection import train_test_split
 
-from sklearn.ensemble import GradientBoostingClassifier
-
-
+from sklearn.linear_model import LogisticRegression
 
 #%% train/validation split
 
@@ -26,15 +24,10 @@ x_train, x_validation, y_train, y_validation = train_test_split(x,
                                                                 y, 
                                                                 test_size = 0.2)
 
-#%% Train decisiontree
+#%% Train logistic regrssion
 
-classifier = GradientBoostingClassifier(learning_rate = 0.01,
-                                        n_estimators = 700) 
+classifier = LogisticRegression(random_state = 0) 
 classifier = classifier.fit(x_train, y_train)
-
 
 #%% Validation
 classifier.score(x_validation,y_validation)
-# 0.8435754189944135 KNNImputer (loss = 'log_loss') 
-# 0.8324022346368715 IterativeImputer (loss = 'log_loss') 
-
