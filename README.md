@@ -1,4 +1,3 @@
-
 Titanic Kaggle competition
 ============================
 
