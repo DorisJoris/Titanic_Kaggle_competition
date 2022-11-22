@@ -12,3 +12,5 @@
 .spyproject/config/vcs.ini
 .spyproject/config/workspace.ini
 __pycache__/dataprovider.cpython-38.pyc
+__pycache__/model_functions.cpython-38.pyc
+__pycache__/helper_functions.cpython-38.pyc

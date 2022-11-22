@@ -101,6 +101,8 @@ if __name__ == "__main__":
     dp = Dataprovider()
     dpdf = dp.training_data.df
     
+    x = dp.training_data.x_onehotencoded.iterative_imputed
+    
     for column in list(dpdf.columns):
         print(column)
         print(dpdf[column].isna().sum())
